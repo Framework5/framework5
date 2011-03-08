@@ -253,7 +253,8 @@ FileETag None
 # Turning on the rewrite engine is necessary for the following rules and features.
 
 <IfModule mod_rewrite.c>
-  RewriteEngine On
+	RewriteEngine On
+	RewriteRule ^([a-zA-Z0-9]+)$ $1.php
 </IfModule>
 
 
