@@ -54,7 +54,7 @@ final class Application {
 		# resolve location		
 		$location = str_replace('.', '/', $location);
 		$location = self::PATH_FRAMEWORK . $location . self::CLASS_EXT;
-		#TODO determine if file location exists
+		# determine if file location exists
 		
 		if (file_exists($location)) {
 			require_once $location;
