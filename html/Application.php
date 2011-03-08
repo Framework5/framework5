@@ -8,10 +8,10 @@
 
 final class Application {
 	
-	const PATH_FRAMEWORK = '../wddsocial/';
-	const PATH_CONTROLLERS = '../wddsocial/controllers/';
-	const PATH_MODELS = '../wddsocial/models/';
-	const PATH_LANGUAGES = '../wddsocial/languages/';
+	const PATH_FRAMEWORK = '../php/';
+	const PATH_CONTROLLERS = '../php/controllers/';
+	const PATH_MODELS = '../php/models/';
+	const PATH_LANGUAGES = '../php/languages/';
 	//const PATH_DOCROOT = __DIR__.DIRECTORY_SEPARATOR;
 	const CLASS_EXT = '.php';
 	
