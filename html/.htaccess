@@ -1,30 +1,6 @@
 # Apache configuration file
 # httpd.apache.org/docs/2.2/mod/quickreference.html
 
-# Note .htaccess files are an overhead, this logic should be in your Apache config if possible
-# httpd.apache.org/docs/2.2/howto/htaccess.html
-
-# Techniques in here adapted from all over, including:
-#   Kroc Camen: camendesign.com/.htaccess
-#   perishablepress.com/press/2006/01/10/stupid-htaccess-tricks/
-#   Sample .htaccess file of CMS MODx: modxcms.com
-
-
-###
-### If you run a webserver other than apache, consider:
-### github.com/paulirish/html5-boilerplate-server-configs
-###
-
-
-
-# ----------------------------------------------------------------------
-# Better website experience for IE users
-# ----------------------------------------------------------------------
-
-# Force the latest IE version, in various cases when it may fall back to IE7 mode
-#  github.com/rails/rails/commit/123eb25#commitcomment-118920
-# Use ChromeFrame if it's installed for a better experience for the poor IE folk
-
 <IfModule mod_setenvif.c>
   <IfModule mod_headers.c>
     BrowserMatch MSIE ie
@@ -33,10 +9,7 @@
 </IfModule>
 
 <IfModule mod_headers.c>
-# Because X-UA-Compatible isn't sent to non-IE (to save header bytes),
-#   We need to inform proxies that content changes based on UA
   Header append Vary User-Agent
-# Cache control is set only if mod_headers is enabled, so that's unncessary to declare
 </IfModule>
 
 
@@ -311,20 +284,6 @@ FileETag None
   RewriteRule ^(.*)$ http://%1/$1 [R=301,L]
 </IfModule>
 
-# ----------------------------------------------------------------------
-
-# Option 2:
-# To rewrite "domain.com -> www.domain.com" uncomment the following lines.
-# Be aware that the following rule might not be a good idea if you
-# use "real" subdomains for certain parts of your website.
-
-# <IfModule mod_rewrite.c>
-#   RewriteCond %{HTTPS} !=on
-#   RewriteCond %{HTTP_HOST} !^www\..+$ [NC]
-#   RewriteCond %{HTTP_HOST} (.+)$ [NC]
-#   RewriteRule ^(.*)$ http://www.%1/$1 [R=301,L]
-# </IfModule>
-
 
 
 # ----------------------------------------------------------------------
@@ -351,14 +310,6 @@ FileETag None
   RewriteRule ^(.*)$ /$1/ [R=301,L]
 </IfModule>
 
-# ----------------------------------------------------------------------
-
-# Option 2:
-# Rewrite "domain.com/foo/ -> domain.com/foo"
-
-#<IfModule mod_rewrite.c>
-#  RewriteRule ^(.*)/$ /$1 [R=301,L]
-#</IfModule>
 
 
 
@@ -406,20 +357,8 @@ FileETag None
 
 Options -MultiViews 
 
-
-
-# ----------------------------------------------------------------------
-# custom 404 page
-# ----------------------------------------------------------------------
-
 # You can add custom pages to handle 500 or 403 pretty easily, if you like.
 ErrorDocument 404 /404.html
-
-
-
-# ----------------------------------------------------------------------
-# UTF-8 encoding
-# ----------------------------------------------------------------------
 
 # use utf-8 encoding for anything served text/plain or text/html
 AddDefaultCharset utf-8
@@ -427,23 +366,7 @@ AddDefaultCharset utf-8
 # force utf-8 for a number of file formats
 AddCharset utf-8 .html .css .js .xml .json .rss
 
-
-
-# ----------------------------------------------------------------------
-# A little more security
-# ----------------------------------------------------------------------
-
-
-# Do we want to advertise the exact version number of Apache we're running?
-# Probably not.
-## This can only be enabled if used in httpd.conf - It will not work in .htaccess
-# ServerTokens Prod
-
-
-# "-Indexes" will have Apache block users from browsing folders without a default document
-# Usually you should leave this activated, because you shouldn't allow everybody to surf through
-# every folder on your server (which includes rather private places like CMS system folders).
-# Options -Indexes
+Options -Indexes
 
 
 # Block access to "hidden" directories whose names begin with a period. This
@@ -451,25 +374,6 @@ AddCharset utf-8 .html .css .js .xml .json .rss
 <IfModule mod_rewrite.c>
   RewriteRule "(^|/)\." - [F]
 </IfModule>
-
-
-# If your server is not already configured as such, the following directive
-# should be uncommented in order to set PHP's register_globals option to OFF.
-# This closes a major security hole that is abused by most XSS (cross-site
-# scripting) attacks. For more information: http://php.net/register_globals
-#
-# IF REGISTER_GLOBALS DIRECTIVE CAUSES 500 INTERNAL SERVER ERRORS :
-#
-# Your server does not allow PHP directives to be set via .htaccess. In that
-# case you must make this change in your php.ini file instead. If you are
-# using a commercial web host, contact the administrators for assistance in
-# doing this. Not all servers allow local php.ini files, and they should
-# include all PHP configurations (not just this one), or you will effectively
-# reset everything to PHP defaults. Consult www.php.net for more detailed
-# information about setting PHP directives.
-
-# php_flag register_globals Off
-
 
 
 
