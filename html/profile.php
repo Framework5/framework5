@@ -26,13 +26,9 @@ catch (Exception $e) {
 
 
 
-#display page
-$template->display('doc_header');
+# display page
+$template->display('doc_header', array('title' => 'wddsocial'));
 
-$template->display('header');
+//$template->display('header');
 
-echo '<div id="content">';
-
-echo '</div>';
-
-$template->display('footer');
+//$template->display('footer');

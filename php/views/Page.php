@@ -52,6 +52,7 @@ class Page{
 	  	<script src="{$this->backToHome}js/libs/modernizr-1.6.min.js"></script>
 	</head>
 	<body>
+		<header></header>
 		<section id="content">
 EOD;
 	}
@@ -74,6 +75,7 @@ EOD;
 		$this->page .= <<<EOD
 		
 		</section><!-- END CONTENT -->
+		<footer></footer>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.0/jquery.min.js"></script>
 		<script>!window.jQuery && document.write(unescape('%3Cscript src="{$this->backToHome}js/libs/jquery-1.4.2.js"%3E%3C/script%3E'))</script>
 		<script src="{$this->backToHome}js/plugins.js"></script>
