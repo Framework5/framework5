@@ -239,14 +239,14 @@ input:invalid, textarea:invalid {
 	}
 	
 ::-moz-selection{
-	background: #79def2;
-	color: #08364d;
+	background: #E3F0D7;
+	color: #444;
 	text-shadow: none;
 	}
 		
 ::selection {
-	background:#79def2;
-	color: #08364d;
+	background:#E3F0D7;
+	color: #444;
 	text-shadow: none;
 	}
 	
