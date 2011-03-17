@@ -1,27 +1,25 @@
 <?php
 
-/**
-* Sample site page
-* 
-* @author tmatthews (tmatthewsdev@gmail.com)
-*/
-
-
 try {
+	## include and instantiate required resources
+	
 	# primary Application controller
-	require_once 'Application.php';
+	require_once '../Application.php';
 	$app = new Application();
 	
 	# core Template controller
-	$app->import('core.controller.Template');
+	$app->import('controllers.core.Template');
 	$template = new Template();
 	
 	# site Profile controller
-	$app->import('site.controller.Profile');
+	$app->import('controllers.site.Profile');
 	$profile = new Profile();
 	
-	# try something that will throw and error
+	#TMP try something that will fail
 	//$profile->is_even(1);
+	
+	$db = $app->instance('db');
+	echo $db->hello();
 	
 }
 catch (AppException $e) {
@@ -31,8 +29,9 @@ catch (AppException $e) {
 }
 catch (Exception $e) {
 	//$app->excetion_error($e);
-	echo "Caught Exception: {$e->getMessage()}";
+	echo $e->getMessage();
 }
+
 
 
 

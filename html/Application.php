@@ -6,76 +6,62 @@
 * @author tmatthews (tmatthewsdev@gmail.com)
 */
 
-final class Application {
+require_once '../php/autoload.php';
+
+final class Application extends Framework {
 	
-	const PATH_FRAMEWORK = '../php/';
-	const PATH_CONTROLLERS = '../php/controllers/';
-	const PATH_MODELS = '../php/models/';
-	const PATH_LANGUAGES = '../php/languages/';
-	//const PATH_DOCROOT = __DIR__.DIRECTORY_SEPARATOR;
-	const CLASS_EXT = '.php';
 	
 	
 	public function __construct() {
-		$this->init();
+		
+		
+		# call Framework constructor
+		parent::__construct();
 	}
 	
 	public function __destruct() {
 		
 		
+		# call Framework constructor
+		parent::__destruct();
 	}
+		
 	
 	
-	
-	public function init() {
-		#TODO init ../wddsocial/Framework.php
-	/*
-		$framework_path= '../wddsocial/';
-		
-		(!is_dir($framework_path) and is_dir(DOCROOT.$framework_path)) 
-			and $framework_path = DOCROOT.$framework_path;
-		
-		//echo $framework_path;
-		
-		define('FRAMEWORK_PATH', realpath($framework_path).DIRECTORY_SEPARATOR);
-		
-		echo constant('FRAMEWORK_PATH');
+	/**
+	* Exception handler
+	* 
+	* @author tmatthews (tmatthewsdev@gmail.com)
 	*/
 	
+	public function excetion_error($e) {
+		
+		$this->log_error($e);
+		
+    	# display the error page
+    	/*
+    	$this->import('controllers.core.Template');
+		$template = new Template();
+		$options = array('message' => $e->getMessage());
+		$template->display('error_page', $options);
+		*/
+		echo 'Application:exception_error() killed execution'; //TMP
+		
+		# kill script execution
+		die;
 	}
 	
 	
 	
-	public function import($location) {
-		
-		# save original path string
-		$path = $location;
-		
-		# resolve location		
-		$location = str_replace('.', '/', $location);
-		$location = self::PATH_FRAMEWORK . $location . self::CLASS_EXT;
-		# determine if file location exists
-		
-		if (file_exists($location)) {
-			require_once $location;
-		}
-		else {
-			throw(new Exception("Could not import path '$path'")); 
-		}
-	}
-	
-	
-	
-	public function requireLogin() {
+	/**
+	* 
+	* 
+	* @author tmatthews (tmatthewsdev@gmail.com)
+	*/
+	public function authenticate($options = null) {
+		$this->import('controllers.core.Auth');
+		$auth = new Auth();
 		
 	}
 	
-	
-	
-	public function log_error($e) {
-		//require_once self::CONTROLLERS_DIR . '/core/Template.php';
-		
-		//file_put_contents('log.txt', $error, FILE_APPEND);
-		echo 'Application caught error: ' . $e->getMessage();;
-	}
 }
