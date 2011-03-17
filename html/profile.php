@@ -21,7 +21,7 @@ try {
 	$profile = new Profile();
 	
 	# try something that will throw and error
-	//$profile->is_even(1);
+	$profile->is_even(1);
 	
 }
 catch (AppException $e) {

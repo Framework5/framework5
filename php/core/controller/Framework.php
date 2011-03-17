@@ -8,11 +8,13 @@
 abstract class Framework extends Controller {
 	
 	public function __construct() {
+		# call Controller constructor
+		parent::__construct();
+		
 		# initialize the framework
 		$this->initialize();
 		
-		# call Controller constructor
-		parent::__construct();
+		
 	}
 	
 	public function __destruct() {
