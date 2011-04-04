@@ -2,6 +2,7 @@
 
 /**
 * Global framework functions
+* 	each function is accessable to all conrollers handled by the framework
 */
 
 # import a package
@@ -60,7 +61,7 @@ if (!function_exists('display')) {
 	}
 }
 
-# returns a singleton instance of a package
+# returns a single instance of a package
 if (!function_exists('instance')) {
 	function instance($package) {
 		return \Framework5\Factory::instance($package);

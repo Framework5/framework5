@@ -4,6 +4,7 @@ namespace Framework5;
 
 /**
 * boot Framework5 via an anonymous function call
+* 	this file should not be modified
 */
 
 call_user_func(function() {
@@ -46,6 +47,7 @@ call_user_func(function() {
 	# framework global functions
 	require PATH_CORE.'functions/global.php';
 	
+	# exit
 	debug('Framework5 initialized');
 	return true;
 });
