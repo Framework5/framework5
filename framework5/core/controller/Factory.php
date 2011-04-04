@@ -112,6 +112,9 @@ class Factory extends Controller {
 	*/
 	
 	final public static function package_class($package) {
+		# resolve package alias
+		if(static::_package_is_alias($package)) $package = static::_package_resolve_alias($package);
+		
 		# split package into array by ., return last value in array
 		$path = explode('.', $package);
 		return end($path);
@@ -147,6 +150,9 @@ class Factory extends Controller {
 	*/
 	
 	final public static function package($package) {
+		# resolve package alias
+		if(static::_package_is_alias($package)) $package = static::_package_resolve_alias($package);
+		
 		if (!file_exists(static::_package_path($package))) return false;
 		return true;
 	}
