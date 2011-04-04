@@ -260,12 +260,12 @@ class Factory extends Controller {
 		}
 		
 		# if the alias array is not defined
-		if (!isset(\Config::$package_aliases)) {
+		if (!isset(Settings::$package_aliases)) {
 			throw new Exception("Could not resolve alias '$alias'. Package alias configuration missing.");
 		}
 		
 		# if the alias is not defined
-		if (!array_key_exists($alias, \Config::$package_aliases)) {
+		if (!array_key_exists($alias, Settings::$package_aliases)) {
 			throw new Exception("Could not resolve invalid alias '$alias'");
 		}
 		
