@@ -123,7 +123,6 @@ class Factory extends Controller {
 	* Gets the base path for a package
 	* ex: core.controller.Controller => core.controller
 	* 
-	* @author tmatthews (tmatthewsdev@gmail.com)
 	*/
 	
 	final public static function package_base($package) {
@@ -145,7 +144,6 @@ class Factory extends Controller {
 	* 
 	* @param string package
 	* @return boolean
-	* @author tmatthews (tmatthewsdev@gmail.com)
 	*/
 	
 	final public static function package($package) {
@@ -156,9 +154,11 @@ class Factory extends Controller {
 	
 	
 	/**
+	* Returns true if the given object implements the given namespace
 	* 
-	* 
-	* @author tmatthews (tmatthewsdev@gmail.com)
+	* @param object
+	* @param string interface
+	* @retun boolean
 	*/
 	
 	final public static function implement($object, $interface) {
@@ -201,7 +201,6 @@ class Factory extends Controller {
 	* 
 	* @param string package
 	* @return boolean
-	* @author tmatthews (tmatthewsdev@gmail.com)
 	*/
 	
 	final private static function _load_package($package) {
@@ -232,7 +231,6 @@ class Factory extends Controller {
 	* 
 	* @param string package
 	* @return boolean
-	* @author tmatthews (tmatthewsdev@gmail.com)
 	*/
 	
 	final private static function _package_is_alias($package) {
@@ -249,7 +247,6 @@ class Factory extends Controller {
 	* Gets a package name from a package alias
 	* 
 	* @param string alias
-	* @author tmatthews (tmatthewsdev@gmail.com)
 	*/
 	
 	final private static function _package_resolve_alias($alias) {
@@ -271,7 +268,4 @@ class Factory extends Controller {
 		
 		return Settings::$package_aliases[$alias];
 	}
-}
-
-
-	
+}	
