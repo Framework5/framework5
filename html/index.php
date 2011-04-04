@@ -2,7 +2,11 @@
 
 /** 
 * Framework5 Front Controller
-* 
+* 	all http requests are handled by this file.
+* 	the uri is retrieved by the Request class, and maps the uri array
+* 	to one or more Application controller. the execute methood is
+* 	then called on the controller. note that the Application also 
+* 	handles all Exceptions caught during execution.
 */
 
 try {
@@ -19,7 +23,7 @@ try {
 	if (package($app_package)) {
 		
 		import($app_package); # import the app
-		$app = package_class($app_package); # get classname
+		$app = package_class($app_package); # get app classname
 		
 		# check if class implements IApplication
 		if (!implement($app, 'Framework5\IApplication'))
@@ -28,8 +32,9 @@ try {
 		# execute the application
 		$app::execute();
 	}
-	else{
-		throw new Exception("Framework5 Front Controller could not import package '$app_package'");
+	else {
+		echo "Framework5 Front Controller could not import package '$app_package', configured in Framework5\Router";
+		die;
 	}
 }
 
