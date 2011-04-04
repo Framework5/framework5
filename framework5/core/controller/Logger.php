@@ -4,7 +4,6 @@ namespace Framework5;
 
 /*
 * Logs framework and application data to the database
-* @author tmatthews (tmatthewsdev@gmail.com)
 */
 
 class Logger extends Controller {
@@ -56,8 +55,7 @@ class Logger extends Controller {
 		$query = $db->prepare(
 			"INSERT INTO fw5_exception_log (request_id, type, timestamp, message, code, file, line, trace) VALUES (?, ?, ?, ?, ?, ?, ?, ?);");
 		$query->execute($data);
-		
-		# return the id of the exception log
+
 		return true;
 	}
 	
@@ -86,8 +84,6 @@ class Logger extends Controller {
 			"INSERT INTO fw5_execution_log (request_id, start_time, exec_time, memory_peak) VALUES (?, ?, ?, ?);");
 		$query->execute($data);
 
-		
-		# return the id of the exception log
 		return true;
 	}
 	
@@ -115,8 +111,6 @@ class Logger extends Controller {
 			"INSERT INTO fw5_debug_log (request_id, data) VALUES (?, ?);");
 		$query->execute($data);
 
-		
-		# return the id of the exception log
 		return true;
 
 	}
