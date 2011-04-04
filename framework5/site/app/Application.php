@@ -20,6 +20,10 @@ final class Application extends \Framework5\ApplicationBase implements \Framewor
 		import('site.config.Router');
 		$package = Router::resolve(\Framework5\Request::uri_array());
 		
+		# set user language
+		import('core.module.language');
+		lang_set('en');
+		
 		# display the controller
 		display($package);
 		

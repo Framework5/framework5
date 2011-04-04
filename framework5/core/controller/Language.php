@@ -1,21 +1,17 @@
 <?php
 
+namespace Framework5;
+
 /*
 * Framework5 internationalization support
 * 
 * this package is currently in development and is not yet documented
-* 
-* @author tmatthews (tmatthewsdev@gmail.com)
 */
 
 class Language {
 	
-	private static $_languages = array(
-		'en' => 'English',
-		'es' => 'Spanish',
-		'fr' => 'French'
-	);
-	
+	//private static $_languages = Settings::$languages;
+		
 	private static $_default_language = 'en';
 	
 	private static $_imported_lang_packs = array();
@@ -25,7 +21,7 @@ class Language {
 	
 	
 	public static function lang_set($language) {
-		if (!in_array($language, array_keys(static::$_languages)))
+		if (!in_array($language, array_keys(Settings::$languages)))
 			throw new Exception("Language could not be set to '$language', not a valid language id");
 		static::$_language = $language;
 		return true;
@@ -62,6 +58,9 @@ class Language {
 		import($package);
 		
 		# add language classname to array
+		if (in_array($class, static::$_imported_lang_packs))
+			throw new Exception("Duplicate language pack '$class'");
+		
 		array_push(static::$_imported_lang_packs, $class);
 		
 		
@@ -70,9 +69,9 @@ class Language {
 	
 	
 	// IndexLang.welcome
-	public static function lang($id) {
+	public static function text($id, $var = null) {
 		$info = explode(':', $id);
-		$array = $info[0]::content();
+		$array = $info[0]::content($var);
 		return $array[$info[1]];
 	}
 }

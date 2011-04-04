@@ -1,15 +1,14 @@
 <?php
 
 /*
-* 
-* @author tmatthews (tmatthewsdev@gmail.com)
+* Sample language pack, French
 */
 
 class IndexLang implements \Framework5\ILanguagePack {
 	
-	public static function content() {
+	public static function content($var) {
 		return array(
-			'welcome' => 'bonjour' //access as IndexLang:welcome
+			'welcome' => "bonjour, {$var['name']}!",
 		);
 	}
 }

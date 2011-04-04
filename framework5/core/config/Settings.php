@@ -28,4 +28,10 @@ class Settings {
 		':db' => 'core.controller.Database',
 		':template' => 'core.controller.Template'
 	);
+	
+	public static $languages = array(
+		'en' => 'English',
+		'es' => 'Spanish',
+		'fr' => 'French'
+	);
 }

@@ -1,10 +1,7 @@
 <?php
 
-//require_once '../core/Controller.php';
-
 /*
-* 
-* @author tmatthews (tmatthewsdev@gmail.com)
+* Sample page script to demonstrate the language features
 */
 
 class LangPage implements \Framework5\IScript {
@@ -13,13 +10,9 @@ class LangPage implements \Framework5\IScript {
 		
 		echo "{language test page}<br/>";
 		
-		import('core.controller.Language');
-		import('core.interface.ILanguagePack');
 		
-		Language::lang_set('en');
-		Language::lang_load('site.lang.IndexLang');
-		echo Language::lang('IndexLang:welcome');
+		lang_load('site.lang.IndexLang');
+		echo text('IndexLang:welcome', array('name' => 'Tyler'));
 		
-		//echo Language::lang('IndexLang:welcome', $params); #TODO
 	}
 }
