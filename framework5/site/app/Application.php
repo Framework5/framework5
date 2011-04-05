@@ -1,7 +1,7 @@
 <?php
 
 /*
-* Application controller - default Primary Controller for Framework5
+* Application controller - default Application Controller for Framework5
 * 
 * 
 * @author tmatthews (tmatthewsdev@gmail.com)
