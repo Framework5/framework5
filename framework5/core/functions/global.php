@@ -50,7 +50,7 @@ if (!function_exists('implement')) {
 # render a view controller
 if (!function_exists('execute')) {
 	function execute($package, $options = null) {
-		return \Framework5\Request::execute($package, $options);
+		return \Framework5\Factory::execute($package, $options);
 	}
 }
 
