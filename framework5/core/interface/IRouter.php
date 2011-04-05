@@ -3,9 +3,7 @@
 namespace Framework5;
 
 /**
-* #TODO
-* 
-* @author tmatthews (tmatthewsdev@gmail.com)
+* Framework5 Router Interface
 */
 
 interface IRouter {

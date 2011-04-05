@@ -3,9 +3,7 @@
 namespace Framework5;
 
 /**
-* 
-* 
-* @author tmatthews (tmatthewsdev@gmail.com)
+* Framework5 Labguage Pack Interface
 */
 
 interface ILanguagePack {
