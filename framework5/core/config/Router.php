@@ -16,11 +16,8 @@ class Router implements IRouter {
 	
 	public static function resolve($request) {
 		switch ($request[0]) {
-			case 'api':
-				return 'api.app.APIApplication';
-			
-			case 'dev':
-				return 'dev.app.DeveloperTools';
+			case 'site':
+				return  'site.app.Application';
 			
 			default:
 				return 'wddsocial.app.WDDSocialApplication';

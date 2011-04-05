@@ -22,13 +22,9 @@ final class Application extends ApplicationBase implements IApplication {
 		import('site.config.Router');
 		$package = \Router::resolve(Request::uri_array());
 		
-		# enable localization module
-		debug("Loading localization module");
-		import('core.module.localization');
-		lang_set('en');
-		
 		# display the controller
-		display($package);
+		trace($package);
+		execute($package);
 		return true;
 	}
 }

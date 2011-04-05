@@ -11,7 +11,7 @@ class Router implements Framework5\IRouter {
 	# route uri path to a controller
 	public static function resolve($request) {
 		
-		switch ($request[0]) {
+		switch ($request[1]) {
 			case '':
 				return 'site.page.IndexPage';
 				
