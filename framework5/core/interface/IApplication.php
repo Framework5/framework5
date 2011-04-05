@@ -3,12 +3,11 @@
 namespace Framework5;
 
 /*
-* 
-* @author tmatthews (tmatthewsdev@gmail.com)
+* Framework5 Application Interface
 */
 
-interface IApplication {
-	public static function execute();
+interface IApplication extends IExecutable {
+	
 	public static function exception_handler($e);
 	//public static function shutdown_handler();
 	//public static function error_handler($number, $message, $file, $line, $context);
