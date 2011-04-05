@@ -24,6 +24,7 @@ try {
 		
 		import($app_package); # import the application
 		$app = package_class($app_package); # get application classname
+		$app = '\\Framework5\\' . $app;
 		
 		# check if class implements IApplication
 		if (!implement($app, 'Framework5\IApplication'))

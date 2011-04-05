@@ -1,5 +1,7 @@
 <?php
 
+namespace Framework5;
+
 /*
 * Application controller - default Application Controller for Framework5
 * 
@@ -7,7 +9,7 @@
 * @author tmatthews (tmatthewsdev@gmail.com)
 */
 
-final class WDDSocialApplication extends \Framework5\ApplicationBase implements \Framework5\IApplication {
+final class WDDSocialApplication extends ApplicationBase implements IApplication {
 	
 	/**
 	* Execute a request. Called by the front controller.
@@ -17,7 +19,7 @@ final class WDDSocialApplication extends \Framework5\ApplicationBase implements 
 		
 		# resolve request to a page controller
 		import('wddsocial.config.Router');
-		$package = Router::resolve(\Framework5\Request::uri_array());
+		$package = \Router::resolve(Request::uri_array());
 		
 		# enable localization module
 		debug("Loading localization module");
