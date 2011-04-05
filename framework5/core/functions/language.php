@@ -7,7 +7,7 @@
 
 # get a text string in the current language
 if (!function_exists('text')) {
-	 function text($id, $var) {
+	 function text($id, $var = null) {
 	 	return \Framework5\Language::text($id, $var);
 	}
 }
