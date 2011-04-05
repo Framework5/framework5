@@ -23,7 +23,7 @@ class Router implements IRouter {
 				return 'dev.app.DeveloperTools';
 			
 			default:
-				return 'site.app.Application';
+				return 'wddsocial.app.WDDSocialApplication';
 		}
 	}
 }
