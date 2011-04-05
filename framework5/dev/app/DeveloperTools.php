@@ -21,7 +21,7 @@ final class DeveloperTools extends \Framework5\ApplicationBase implements \Frame
 		$package = Router::resolve(\Framework5\Request::uri_array());
 		
 		# display the controller
-		display($package);
+		execute($package);
 		
 		# log execution stats
 		if (\Framework5\Settings::$log_execution) \Framework5\Logger::log_execution();

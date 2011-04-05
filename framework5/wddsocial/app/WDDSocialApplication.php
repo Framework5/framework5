@@ -25,8 +25,8 @@ final class WDDSocialApplication extends \Framework5\ApplicationBase implements 
 		import('core.module.localization');
 		lang_set('en');
 		
-		# display the controller
-		display($package);
+		# execute the controller
+		execute($package);
 		
 		# log execution stats
 		if (\Framework5\Settings::$log_execution) \Framework5\Logger::log_execution();
