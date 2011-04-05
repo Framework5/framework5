@@ -13,19 +13,19 @@ class Router implements Framework5\IRouter {
 		
 		switch ($request[0]) {
 			case '':
-				return 'site.page.IndexPage';
+				return 'wddsocial.page.IndexPage';
 				
 			case 'user':
-				return 'site.page.ProfilePage';
+				return 'wddsocial.page.ProfilePage';
 			
 			case 'about':
-				return 'site.page.AboutPage';
+				return 'wddsocial.page.AboutPage';
 			
 			case 'lang':
-				return 'site.page.LangPage';
+				return 'wddsocial.page.LangPage';
 			
 			default:
-				return 'site.page.Http404Page';
+				return 'wddsocial.page.Http404Page';
 		}
 	}
 }

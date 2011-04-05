@@ -17,7 +17,7 @@ final class WDDSocialApplication extends \Framework5\ApplicationBase implements 
 		debug('Application execution starting');
 		
 		# resolve request to a page controller
-		import('site.config.Router');
+		import('wddsocial.config.Router');
 		$package = Router::resolve(\Framework5\Request::uri_array());
 		
 		# enable localization module
