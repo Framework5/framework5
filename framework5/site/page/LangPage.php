@@ -4,7 +4,7 @@
 * Sample page script to demonstrate the language features
 */
 
-class LangPage implements \Framework5\IScript {
+class LangPage implements \Framework5\IExecutable {
 	
 	public static function execute() {
 		

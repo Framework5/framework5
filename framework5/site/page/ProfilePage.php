@@ -6,7 +6,7 @@
 * @author tmatthews (tmatthewsdev@gmail.com)
 */
 
-class ProfilePage  implements \Framework5\IScript {
+class ProfilePage  implements \Framework5\IExecutable {
 	
 	public static function execute() {
 		
