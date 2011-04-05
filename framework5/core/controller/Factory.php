@@ -160,6 +160,34 @@ class Factory extends Controller {
 	
 	
 	/**
+	* Executes a package and returns the result
+	* scripts must implement interface IExecutable
+	*/
+	
+	public function execute($package, $options = null) {
+		
+		debug("Executing package '$package'");
+		
+		# if the package has not been loaded, import it
+		if (!loaded($package)) import($package);
+		
+		# get the class name
+		$class = Factory::package_class($package);
+		
+		# check if class implents the Framework5\IScript interface
+		if (!Factory::implement($class, 'Framework5\IExecutable'))
+			throw new Exception("Package '$package' could not be rendered, class '$class' does not implement interface '\Framework5\IExecutable'");
+		
+		# if options were passed, pass to execute
+		if ($options) return $class::execute($options);
+		
+		# import and execute script controller
+		return $class::execute();
+	}
+	
+	
+	
+	/**
 	* Returns true if the given object implements the given namespace
 	* 
 	* @param object

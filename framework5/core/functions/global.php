@@ -49,15 +49,8 @@ if (!function_exists('implement')) {
 
 # render a view controller
 if (!function_exists('execute')) {
-	function render($package, $options = null) {
+	function execute($package, $options = null) {
 		return \Framework5\Request::execute($package, $options);
-	}
-}
-
-# displays a rendered view controller
-if (!function_exists('display')) {
-	function display($package, $options = null) {
-		return \Framework5\Request::display($package, $options);
 	}
 }
 

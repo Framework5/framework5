@@ -52,45 +52,6 @@ class Request {
 	
 	
 	
-	/**
-	* Executes a script and returns the result
-	* scripts must implement interface IScript
-	*/
-	
-	public function execute($package, $options = null) {
-		
-		debug("Rendering package '$package'");
-		
-		# if the package has not been loaded, import it
-		if (!loaded($package)) import($package);
-		
-		# get the class name
-		$class = Factory::package_class($package);
-		
-		# check if class implents the Framework5\IScript interface
-		if (!Factory::implement($class, 'Framework5\IExecutable'))
-			throw new Exception("Package '$package' could not be rendered, class '$class' does not implement interface '\Framework5\IExecutable'");
-			
-		# if options were passed, pass to execute
-		if ($options) return $class::execute($options);
-		
-		# import and execute script controller
-		return $class::execute();
-	}
-	
-	
-	
-	/**
-	* Executes a script and outputs the result
-	* 
-	* @return boolean
-	*/
-	
-	public function display($package, $options = null) {
-		echo static::execute($package, $options);
-		return true;
-	}
-	
 	// private //
 	
 	/**
