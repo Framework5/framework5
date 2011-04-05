@@ -24,7 +24,7 @@ try {
 		
 		import($app_package); # import the application
 		$app = package_class($app_package); # get application classname
-		$app = '\\Framework5\\' . $app;
+		$app = '\\Framework5\\' . $app; # add application namespace
 		
 		# check if class implements IApplication
 		if (!implement($app, 'Framework5\IApplication'))
@@ -33,14 +33,16 @@ try {
 		# execute the application
 		debug('Application execution starting');
 		$app::execute();
+		debug('Application execution complete');
 		
 		# log execution stats
-		if (\Framework5\Settings::$log_execution) \Framework5\Logger::log_execution();
+		if (\Framework5\Settings::$log_execution)
+			\Framework5\Logger::log_execution();
 		
 		# log debug information
-		if (\Framework5\Settings::$log_debug) \Framework5\Logger::log_debug(\Framework5\Debugger::dump());
+		if (\Framework5\Settings::$log_debug) 
+			\Framework5\Logger::log_debug(\Framework5\Debugger::dump());
 		
-		debug('Application execution complete');
 		die; # kill execution
 	}
 	
