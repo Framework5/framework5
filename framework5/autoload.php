@@ -23,7 +23,7 @@ call_user_func(function() {
 	
 	# framework interfaces
 	require PATH_CORE.'interface/IApplication.php';
-	require PATH_CORE.'interface/IScript.php';
+	require PATH_CORE.'interface/IExecutable.php';
 	require PATH_CORE.'interface/IRouter.php';
 	
 	# framework core files
