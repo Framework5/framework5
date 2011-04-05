@@ -5,7 +5,7 @@
 * @author tmatthews (tmatthewsdev@gmail.com)
 */
 
-class ListUsers implements Framework5\IScript {
+class ListUsers implements Framework5\IExecutable {
 	
 	public static function execute() {
 		

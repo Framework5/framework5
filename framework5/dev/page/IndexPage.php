@@ -5,7 +5,7 @@
 * @author tmatthews (tmatthewsdev@gmail.com)
 */
 
-class IndexPage implements \Framework5\IScript {
+class IndexPage implements \Framework5\IExecutable {
 	
 	public static function execute() {
 		echo 'Framework5 Debugger';
