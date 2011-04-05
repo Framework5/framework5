@@ -19,19 +19,31 @@ try {
 	# get application controller from Framework5\Router
 	$app_package = \Framework5\Router::resolve($request);
 	
-	# check if the app is a valid package
+	# check if the application is a valid package
 	if (package($app_package)) {
 		
-		import($app_package); # import the app
-		$app = package_class($app_package); # get app classname
+		import($app_package); # import the application
+		$app = package_class($app_package); # get application classname
 		
 		# check if class implements IApplication
 		if (!implement($app, 'Framework5\IApplication'))
 			throw new Exception('app must implement Framework5\IApplication');
 		
 		# execute the application
+		debug('Application execution starting');
 		$app::execute();
+		
+		# log execution stats
+		if (\Framework5\Settings::$log_execution) \Framework5\Logger::log_execution();
+		
+		# log debug information
+		if (\Framework5\Settings::$log_debug) \Framework5\Logger::log_debug(\Framework5\Debugger::dump());
+		
+		debug('Application execution complete');
+		die; # kill execution
 	}
+	
+	# the application is not a valid package
 	else {
 		echo "Framework5 Front Controller could not import package '$app_package', configured in Framework5\Router";
 		die;

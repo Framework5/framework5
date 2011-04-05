@@ -14,22 +14,13 @@ final class DeveloperTools extends \Framework5\ApplicationBase implements \Frame
 	*/
 	
 	public static function execute() {
-		debug('DeveloperApplication execution starting');
-		
+			
 		# resolve request to a page controller
 		import('dev.config.Router');
 		$package = Router::resolve(\Framework5\Request::uri_array());
 		
 		# display the controller
 		execute($package);
-		
-		# log execution stats
-		if (\Framework5\Settings::$log_execution) \Framework5\Logger::log_execution();
-		
-		# log debug information
-		if (\Framework5\Settings::$log_debug) \Framework5\Logger::log_debug(\Framework5\Debugger::dump());
-		
-		debug('DeveloperApplication execution complete');
-		die; # kill execution
+		return true;
 	}
 }

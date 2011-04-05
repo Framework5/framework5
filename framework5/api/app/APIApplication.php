@@ -16,11 +16,6 @@ final class APIApplication extends \Framework5\ApplicationBase implements \Frame
 	*/
 	
 	public static function execute() {
-		debug('APIApplication execution starting');
-		
-		#TODO set error handler
-		//set_error_handler('Application::error_handler', E_ALL);
-		//register_shutdown_function('Application::shutdown_handler');
 		
 		# resolve request to a page controller
 		import('api.config.Router');
@@ -28,16 +23,6 @@ final class APIApplication extends \Framework5\ApplicationBase implements \Frame
 		
 		# display the controller
 		execute($package);
-		
-		# log execution stats
-		if (\Framework5\Settings::$log_execution) \Framework5\Logger::log_execution();
-		
-		# log debug information
-		if (\Framework5\Settings::$log_debug) \Framework5\Logger::log_debug(\Framework5\Debugger::dump());
-		
-		
-		debug('APIApplication execution complete');
-		
-		die; # kill execution
+		return true;
 	}
 }
