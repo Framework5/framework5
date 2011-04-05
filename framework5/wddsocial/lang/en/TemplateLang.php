@@ -22,7 +22,7 @@ class TemplateLang implements \Framework5\ILanguagePack {
 			'messages' => 'Messages',
 			'account' => 'Account',
 			'signout' => 'Sign Out',
-			'search' => 'Search'
+			'search' => 'Search',
 			
 			# footer
 			'copyright' => '&copy; 2011 WDD Social',
