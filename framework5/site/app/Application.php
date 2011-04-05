@@ -29,14 +29,6 @@ final class Application extends ApplicationBase implements IApplication {
 		
 		# display the controller
 		display($package);
-		
-		# log execution stats
-		if (Settings::$log_execution) Logger::log_execution();
-		
-		# log debug information
-		if (Settings::$log_debug) Logger::log_debug(Debugger::dump());
-		
-		debug('Application execution complete');
-		die; # kill execution
+		return true;
 	}
 }
