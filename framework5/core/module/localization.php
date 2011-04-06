@@ -8,7 +8,7 @@ namespace Framework5;
 
 # determine if valid languages array is set in the settings file
 if (!isset(Settings::$languages) or empty(Settings::$languages))
-	throw new Exception("valid languages array must be set in core.config.Settings");
+	throw new Exception("Could not import localization module. Valid languages array must be set in core.config.Settings");
 
 # import required classes
 import('core.controller.Language');
