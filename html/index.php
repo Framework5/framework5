@@ -1,5 +1,7 @@
 <?php
 
+namespace Framework5;
+
 /** 
 * Framework5 Front Controller
 * 	all http requests are handled by this file.
@@ -14,10 +16,10 @@ try {
 	require_once '../framework5/autoload.php';
 	
 	# get the request uri array
-	$request = \Framework5\Request::uri_array();
+	$request = Request::uri_array();
 	
 	# get application controller from Framework5\Router
-	$app_package = \Framework5\Router::resolve($request);
+	$app_package = Router::resolve($request);
 	
 	# check if the application is a valid package
 	if (package($app_package)) {
@@ -36,12 +38,12 @@ try {
 		debug('Application execution complete');
 		
 		# log execution stats
-		if (\Framework5\Settings::$log_execution)
-			\Framework5\Logger::log_execution();
+		if (Settings::$log_execution)
+			Logger::log_execution();
 		
 		# log debug information
-		if (\Framework5\Settings::$log_debug) 
-			\Framework5\Logger::log_debug(\Framework5\Debugger::dump());
+		if (Settings::$log_debug) 
+			Logger::log_debug(Debugger::dump());
 		
 		die; # kill execution
 	}
