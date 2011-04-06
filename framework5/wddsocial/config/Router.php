@@ -13,7 +13,7 @@ class Router implements \Framework5\IRouter {
 	# route uri path to a controller
 	public static function resolve($request) {
 		
-		switch ($request[0]) {
+		switch ($request) {
 			case '':
 				return 'wddsocial.page.IndexPage';
 				
