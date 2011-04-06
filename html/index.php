@@ -53,5 +53,6 @@ try {
 }
 
 catch (Exception $e) {
+	# handle exceptions through the application
 	$app::exception_handler($e);
 }
