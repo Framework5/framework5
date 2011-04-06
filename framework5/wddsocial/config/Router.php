@@ -1,12 +1,14 @@
 <?php
 
+namespace App;
+
 /*
 * Application Request Router
 * 
 * @author tmatthews (tmatthewsdev@gmail.com)
 */
 
-class Router implements Framework5\IRouter {
+class Router implements \Framework5\IRouter {
 	
 	# route uri path to a controller
 	public static function resolve($request) {
