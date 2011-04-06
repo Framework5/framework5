@@ -6,7 +6,7 @@
 
 class TemplateLang implements \Framework5\ILanguagePack {
 	
-	public static function content($var) {
+	public static function content($id, $var) {
 		switch ($id) {
 			# navigation elements
 			case 'people':
