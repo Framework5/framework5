@@ -4,19 +4,19 @@ namespace Framework5;
 
 /*
 * Framework5 configuration file
-* 
-* @author tmatthews (tmatthewsdev@gmail.com)
 */
 
 class Settings {
 	
+	# current mode
 	const PRODUCTION_MODE = 0; # Development 0, Production 1;
 	
-	
+	# execution stats and debug logging
 	public static $log_execution = true;
 	public static $log_debug = true;
 	public static $log_exception = true;
 	
+	# connection for database used by core framework classes
 	public static $dbinfo = array(
 		'host' => 'localhost',
 		'username' => 'root',
@@ -24,11 +24,12 @@ class Settings {
 		'dbname' => 'sandbox'
 	);
 	
+	# package alias' can be used in place of a package name
 	public static $package_aliases = array(
-		':db' => 'core.controller.Database',
-		':template' => 'core.controller.Template'
+		':controller' => 'core.controller.Controller', //example
 	);
 	
+	# languages supported
 	public static $languages = array(
 		'en' => 'English',
 		'es' => 'Spanish',
