@@ -24,7 +24,7 @@ final class WDDSocialApplication extends ApplicationBase implements IApplication
 		# enable localization module
 		debug("Loading localization module");
 		import('core.module.localization');
-		lang_set('en');
+		lang_set('fr');
 		
 		# execute the controller
 		execute($package);

@@ -11,7 +11,7 @@ namespace Framework5;
 class Language {
 	
 	//private static $_languages = Settings::$languages;
-		
+	
 	private static $_default_language = 'en';
 	
 	private static $_imported_lang_packs = array();
@@ -69,9 +69,10 @@ class Language {
 	
 	
 	// IndexLang.welcome
-	public static function text($id, $var = null) {
-		$info = explode(':', $id);
-		$array = $info[0]::content($var);
-		return $array[$info[1]];
+	public static function text($selector, $var = null) {
+		$info = explode(':', $selector);
+		$class = $info[0];
+		$id = $info[1];
+		return $class::content($id, $var);
 	}
 }

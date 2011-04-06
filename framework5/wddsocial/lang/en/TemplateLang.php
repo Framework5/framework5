@@ -7,31 +7,51 @@
 class TemplateLang implements \Framework5\ILanguagePack {
 	
 	public static function content($var) {
-		return array(
+		switch ($id) {
 			# navigation elements
-			'people' => 'People',
-			'projects' => 'Projects',
-			'articles' => 'articles',
-			'courses' => 'Courses',
-			'events' => 'Events',
-			'jobs' => 'Jobs',
-			
+			case 'people':
+				return 'People';
+			case 'projects':
+				return 'Projects';
+			case 'articles':
+				return 'Articles';
+			case 'courses':
+				return 'Courses';
+			case 'events':
+				return 'Events';
+			case 'jobs':
+				return 'Jobs';
+				
 			# header
-			'register' => 'Register',
-			'signin' => 'Sign In',
-			'messages' => 'Messages',
-			'account' => 'Account',
-			'signout' => 'Sign Out',
-			'search' => 'Search',
-			
+			case 'register':
+				return 'Register';
+			case 'signin':
+				return 'Sign In';
+			case 'messages':
+				return 'Messages';
+			case 'account':
+				return 'Account';
+			case 'signout':
+				return 'Sign Out';
+			case 'search':
+				return 'Search';
+				
 			# footer
-			'copyright' => '&copy; 2011 WDD Social',
-			'developer' => 'Developer',
-			'about' => 'About',
-			'contact' => 'Contact',
-			'terms' => 'Terms',
-			'privacy' => 'Privacy',
-			
-		);
+			case 'copyright':
+				return '&copy; 2011 WDD Social';
+			case 'developer':
+				return 'Developer';
+			case 'about':
+				return 'About';
+			case 'contact':
+				return 'Contact';
+			case 'terms':
+				return 'Terms';
+			case 'privacy':
+				return 'Privacy';
+				
+			default:
+				throw new Exception("Language pack content '$id' not found");
+		}
 	}
 }

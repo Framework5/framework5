@@ -7,5 +7,5 @@ namespace Framework5;
 */
 
 interface ILanguagePack {
-	public static function content($var);
+	public static function content($id, $var);
 }
