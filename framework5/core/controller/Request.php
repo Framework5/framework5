@@ -18,6 +18,7 @@ class Request {
 	/**
 	* Defines the Request uri property
 	* 
+	* @return string current request uri
 	*/
 	
 	public static function uri() {
@@ -30,6 +31,7 @@ class Request {
 	/**
 	* Defines the Request uri array property
 	* 
+	* @return array current request uri array
 	*/
 	
 	public static function uri_array() {
@@ -41,9 +43,7 @@ class Request {
 	
 	
 	/**
-	* 
-	* 
-	* @author tmatthews (tmatthewsdev@gmail.com)
+	* Retreives a segent of the current uri array
 	*/
 	
 	public static function segment($id) {
@@ -55,6 +55,7 @@ class Request {
 	/**
 	* Defines the Request id
 	* 
+	* @return int current request id
 	*/
 	
 	public static function request_id() {
