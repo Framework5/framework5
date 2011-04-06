@@ -21,11 +21,8 @@ class Router implements Framework5\IRouter {
 			case 'about':
 				return 'wddsocial.page.AboutPage';
 			
-			case 'lang':
-				return 'wddsocial.page.LangPage';
-			
 			default:
-				return 'wddsocial.page.Http404Page';
+				return 'wddsocial.page.Http404';
 		}
 	}
 }
