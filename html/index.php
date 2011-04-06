@@ -15,11 +15,8 @@ try {
 	# load Framework5
 	require_once '../framework5/autoload.php';
 	
-	# get the request uri array
-	$request = Request::uri_array();
-	
-	# get application controller from Framework5\Router
-	$app_package = Router::resolve($request);
+	# get application controller from Framework5\Router, base on the uri segment
+	$app_package = Router::resolve(Request::segment(0));
 	
 	# check if the application is a valid package
 	if (package($app_package)) {

@@ -15,7 +15,7 @@ namespace Framework5;
 class Router implements IRouter {
 	
 	public static function resolve($request) {
-		switch ($request[0]) {
+		switch ($request) {
 			case 'site':
 				return  'site.app.Application';
 			

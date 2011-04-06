@@ -41,6 +41,18 @@ class Request {
 	
 	
 	/**
+	* 
+	* 
+	* @author tmatthews (tmatthewsdev@gmail.com)
+	*/
+	
+	public static function segment($id) {
+		if (!isset($_uri_array)) static::uri_array();
+		return static::$_uri_array[$id];
+	}
+	
+	
+	/**
 	* Defines the Request id
 	* 
 	*/
