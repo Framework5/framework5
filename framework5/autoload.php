@@ -39,7 +39,7 @@ call_user_func(function() {
 	require PATH_CORE.'controller/ApplicationBase.php';
 	
 	# debug utility
-	if (Settings::$log_debug) { 
+	if (Settings::$debug_mode) { 
 		require PATH_CORE.'controller/Debugger.php';
 		require PATH_CORE.'model/DebugMessage.php';
 	}

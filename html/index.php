@@ -39,10 +39,9 @@ try {
 			Logger::log_execution();
 		
 		# log debug information
-		if (Settings::$log_debug) 
+		if (Settings::$debug_mode and Settings::$log_debug) 
 			Logger::log_debug(Debugger::dump());
 		
-		die; # kill execution
 	}
 	
 	# the application is not a valid package

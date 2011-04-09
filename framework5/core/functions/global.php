@@ -71,7 +71,7 @@ if (!function_exists('trace')) {
 # helper function to log the execution of the application
 if (!function_exists('debug')) {
 	function debug($message) {
-		if (!\Framework5\Settings::$log_debug) {
+		if (!\Framework5\Settings::$debug_mode) {
 			return true;
 		}
 		return \Framework5\Debugger::debug($message, debug_backtrace());
