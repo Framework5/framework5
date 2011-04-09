@@ -15,6 +15,9 @@ class LanguageSettings {
 		'fr' => 'French'
 	);
 	
+	# the default language
+	public static $default_language = 'en';
+	
 	# used for language pack autoloading
 	public static $language_packs = array(
 		'DateLang' => 'wddsocial.lang.DateLang',

@@ -10,10 +10,6 @@ namespace Framework5;
 
 class Language {
 	
-	//private static $_languages = Settings::$languages;
-	
-	private static $_default_language = 'en';
-	
 	private static $_imported_lang_packs = array();
 	
 	private static $_language; # the current language id (en,es,fr)
@@ -21,7 +17,7 @@ class Language {
 	
 	
 	/**
-	* 
+	* Set the current language
 	*/
 	
 	public static function lang_set($language) {
@@ -34,20 +30,23 @@ class Language {
 	
 	
 	/**
-	* 
+	* Returns the current or default language
 	*/
 	
 	public static function lang_get() {
-		if (!isset(static::$_language) or empty(static::$_language)) return static::$_default_language;
+		if (!isset(static::$_language) or empty(static::$_language)) 
+			return LanguageSettings::$default_language;
 		return static::$_language;
 	}
 	
 	
 	
 	/**
+	* Returns formatted content from a Language Package
 	* 
+	* example: text('SiteLang:welcome', array('name' => 'Tyler'));
 	*/
-	// selector DateLang::jan
+	
 	public static function text($selector, $var = null) {
 		$info = explode(':', $selector);
 		
