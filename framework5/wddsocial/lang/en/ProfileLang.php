@@ -1,7 +1,8 @@
 <?php
 
 /*
-* Sample language pack, English
+* Profile Language Pack
+* English
 */
 
 class ProfileLang implements \Framework5\ILanguagePack {
@@ -10,7 +11,10 @@ class ProfileLang implements \Framework5\ILanguagePack {
 		
 		switch ($id) {
 			case 'intro':
-				return "{$var['name']} is a {$var['age']}-year-old, on-campus student from {$var['location']} who began Full Sail in {$var['date']}";
+				# get the month in the users language
+				$var['month'] = text("DateLang:{$var['month']}");
+				
+				return "{$var['name']} is a {$var['age']}-year-old, on-campus student from {$var['location']} who began Full Sail in {$var['month']} {$var['year']}";
 			
 			default:
 				throw new Exception("Language pack content '$id' not found");
