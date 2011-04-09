@@ -6,11 +6,13 @@ namespace Framework5;
 * Framework5 internationalization module loader
 */
 
-# determine if valid languages array is set in the settings file
-if (!isset(Settings::$languages) or empty(Settings::$languages))
-	throw new Exception("Could not import localization module. Valid languages array must be set in core.config.Settings");
-
 # import required classes
-import('core.controller.Language');
-import('core.interface.ILanguagePack');
-import('core.functions.language');
+import('core.module.localization.config.LanguageSettings');
+import('core.module.localization.interface.ILanguagePack');
+import('core.module.localization.Language');
+import('core.module.localization.functions');
+
+# determine if valid languages array is set in the settings file
+if (!isset(LanguageSettings::$languages) or empty(LanguageSettings::$languages))
+	throw new Exception(
+		"Could not import localization module. Valid languages array must be set in LanguageSettings");
