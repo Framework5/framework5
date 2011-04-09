@@ -28,11 +28,4 @@ class Settings {
 	public static $package_aliases = array(
 		':controller' => 'core.controller.Controller', //example
 	);
-	
-	# languages supported
-	public static $languages = array(
-		'en' => 'English',
-		'es' => 'Spanish',
-		'fr' => 'French'
-	);
 }
