@@ -3,7 +3,7 @@
 namespace Framework5;
 
 /*
-* Application controller - default Application Controller for Framework5
+* WDDSocialApplication controller
 * 
 * 
 * @author tmatthews (tmatthewsdev@gmail.com)
