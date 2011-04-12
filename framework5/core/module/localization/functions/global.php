@@ -8,7 +8,7 @@
 # get a text string in the current language
 if (!function_exists('text')) {
 	 function text($id, $var = null) {
-	 	return \Framework5\Language::text($id, $var);
+	 	return \Framework5\Localization::text($id, $var);
 	}
 }
 else{
@@ -18,7 +18,7 @@ else{
 # set the current language
 if (!function_exists('lang_set')) {
 	function lang_set($language) {
-		return \Framework5\Language::lang_set($language);
+		return \Framework5\Localization::lang_set($language);
 	}
 }
 else{
@@ -28,7 +28,7 @@ else{
 # load a language pack
 if (!function_exists('lang_load')) {
 	function lang_load($package) {
-		return \Framework5\Language::lang_load($package);
+		return \Framework5\Localization::lang_load($package);
 	}
 }
 else{

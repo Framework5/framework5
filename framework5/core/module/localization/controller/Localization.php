@@ -8,7 +8,7 @@ namespace Framework5;
 * this package is currently in development and is not yet documented
 */
 
-class Language {
+class Localization {
 	
 	private static $_imported_lang_packs = array();
 	
@@ -21,7 +21,7 @@ class Language {
 	*/
 	
 	public static function lang_set($language) {
-		if (!in_array($language, array_keys(LanguageSettings::$languages)))
+		if (!in_array($language, array_keys(LocalizationSettings::$languages)))
 			throw new Exception("Language could not be set to '$language', not a valid language id");
 		static::$_language = $language;
 		return true;
@@ -35,7 +35,7 @@ class Language {
 	
 	public static function lang_get() {
 		if (!isset(static::$_language) or empty(static::$_language)) 
-			return LanguageSettings::$default_language;
+			return LocalizationSettings::$default_language;
 		return static::$_language;
 	}
 	
@@ -129,13 +129,13 @@ class Language {
 	private static function _lang_autoload($class) {
 		
 		# check if the autoload packages are defined
-		if (!isset(LanguageSettings::$language_packs))
+		if (!isset(LocalizationSettings::$language_packs))
 			return false;
 		
-		if (!array_key_exists($class, LanguageSettings::$language_packs))
+		if (!array_key_exists($class, LocalizationSettings::$language_packs))
 			return false;
 		
-		lang_load(LanguageSettings::$language_packs[$class]);
+		lang_load(LocalizationSettings::$language_packs[$class]);
 		return true;
 	}
 }

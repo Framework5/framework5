@@ -18,9 +18,10 @@ final class WDDSocialApplication extends ApplicationBase implements IApplication
 	public static function execute() {
 		
 		# enable localization module
-		debug("Loading localization module");
-		import('core.module.localization');
-		lang_set('en'); # set current lang
+		#TODO change to module();
+		//import('core.module.localization.LocalizationModule');
+		execute('core.module.localization.LocalizationModule');
+		lang_set('en');
 		
 		# resolve request to a page controller
 		import('wddsocial.config.Router');
