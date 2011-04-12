@@ -182,21 +182,28 @@ class Factory extends Controller {
 		if ($options) return $class::execute($options);
 		
 		# import and execute script controller
+		
 		return $class::execute();
 	}
 	
 	
 	
 	/**
-	* Returns true if the given object implements the given namespace
+	* Returns true if the given class implements the given namespace
 	* 
 	* @param object
 	* @param string interface
 	* @retun boolean
 	*/
 	
-	final public static function implement($object, $interface) {
-		$reflection = new \ReflectionClass($object);
+	final public static function implement($class, $interface) {
+		
+		# determine if the passed exists
+		if (!class_exists($class))
+			throw new Exception("Could not determine if class '$class' implements interface '$interface' because '$class' does not exist");
+		
+		# use the reflection class to determine if the class implements the interface
+		$reflection = new \ReflectionClass($class);
 		if(!in_array($interface, $reflection->getInterfaceNames())) {
 			return false;
 		}
@@ -283,7 +290,7 @@ class Factory extends Controller {
 	* @param string alias
 	*/
 	
-	final private static function _package_resolve_alias($alias) {
+	final private static function _resolve_package_alias($alias) {
 		
 		# if the alias name is not valid format (does not start with :)
 		if (!static::_package_is_alias($alias)) {
