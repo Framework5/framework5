@@ -24,8 +24,9 @@ call_user_func(function() {
 	# framework interfaces
 	require PATH_CORE.'interface/IExecutable.php';
 	require PATH_CORE.'interface/IApplication.php';
+	require PATH_CORE.'interface/IModule.php';
 	require PATH_CORE.'interface/IRouter.php';
-	
+		
 	# framework core files
 	require PATH_CORE.'controller/Controller.php'; # controller base
 	require PATH_CORE.'exception/Exception.php'; # custom exception
@@ -34,6 +35,8 @@ call_user_func(function() {
 	require PATH_CORE.'controller/Factory.php'; # framework factory
 	require PATH_CORE.'controller/Request.php'; # request object
 	require PATH_CORE.'controller/Logger.php'; # log utility
+	require PATH_CORE.'controller/Module.php'; # module base
+	
 	
 	# application dependencies
 	require PATH_CORE.'controller/ApplicationBase.php';
