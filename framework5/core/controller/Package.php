@@ -3,8 +3,7 @@
 namespace Framework5;
 
 /*
-* 
-* @author tmatthews (tmatthewsdev@gmail.com)
+* Controller to access properties of a package name
 */
 
 class Package {
@@ -33,7 +32,7 @@ class Package {
 		# check for cached value
 		if (array_key_exists($package_name, Package::$_cache)) {
 			$this->_info = Package::$_cache[$package_name];
-			return $this;
+			return true;
 		}
 		
 		# set package properties
@@ -79,7 +78,7 @@ class Package {
 		# cache information
 		Package::$_cache[$package_name] = $this->_info;
 		
-		return $this;
+		return true;
 	}
 	
 	
@@ -100,6 +99,10 @@ class Package {
 	
 	
 	
+	/**
+	* Determines if the packages file path is valid
+	* 
+	*/
 	public function path_valid() {
 		if (!file_exists($this->path)) return false;
 		return true;
