@@ -19,13 +19,12 @@ final class WDDSocialApplication extends ApplicationBase implements IApplication
 		
 		# enable localization module
 		#TODO change to module();
-		//import('core.module.localization.LocalizationModule');
 		execute('core.module.localization.LocalizationModule');
 		lang_set('en');
 		
 		# resolve request to a page controller
 		import('wddsocial.config.Router');
-		$package = \App\Router::resolve(Request::segment(0));
+		$package = \WDDSocial\Router::resolve(Request::segment(0));
 		
 		# execute the controller
 		execute($package);

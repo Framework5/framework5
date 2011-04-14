@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace WDDSocial;
 
 /*
 * Application Request Router
@@ -15,16 +15,16 @@ class Router implements \Framework5\IRouter {
 		
 		switch ($request) {
 			case '':
-				return 'wddsocial.page.IndexPage';
+				return 'wddsocial.page.WDDSocial\IndexPage';
 				
 			case 'user':
-				return 'wddsocial.page.ProfilePage';
+				return 'wddsocial.page.WDDSocial\ProfilePage';
 			
 			case 'about':
-				return 'wddsocial.page.AboutPage';
+				return 'wddsocial.page.WDDSocial\AboutPage';
 			
 			default:
-				return 'wddsocial.page.Http404';
+				return 'wddsocial.page.WDDSocial\Http404';
 		}
 	}
 }

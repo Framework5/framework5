@@ -1,5 +1,7 @@
 <?php
 
+namespace WDDSocial;
+
 /*
 * Sample script 
 * 
@@ -11,14 +13,18 @@ class ProfilePage implements \Framework5\IExecutable {
 	public static function execute() {
 		
 		# sample use of a site controller
-		import('site.controller.Profile');
+		import('site.controller.WDDSocial\Profile');
+		
 		
 		# load language pack
 		lang_load('wddsocial.lang.ProfileLang');
-		//lang_load('wddsocial.lang.DateLang');
+		
 		
 		echo text('ProfileLang:intro', array(
-			'name' => 'Tyler', 'age' => '19', 'location' => 'New Jersey', 'month' => 'jan', 'year' => '2009')
+			'name' => 'Tyler',
+			'age' => '19',
+			'location' => 'New Jersey',
+			'month' => 'jan', 'year' => '2009')
 		);
 		
 		

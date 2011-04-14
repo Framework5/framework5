@@ -1,5 +1,7 @@
 <?php
 
+namespace WDDSocial;
+
 /*
 * 
 * @author tmatthews (tmatthewsdev@gmail.com)

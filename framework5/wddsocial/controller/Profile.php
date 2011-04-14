@@ -1,5 +1,7 @@
 <?php
 
+namespace WDDSocial;
+
 /*
 * Sample controller
 * @author tmatthews (tmatthewsdev@gmail.com)
