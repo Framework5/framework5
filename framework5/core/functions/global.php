@@ -7,36 +7,15 @@
 
 # import a package
 if (!function_exists('import')) {
-	 function import($package) {
-	 	return \Framework5\Factory::import($package);
-	}
-}
-
-# returns the classname of a given package
-if (!function_exists('package_class')) {
-	function package_class($package) {
-		return \Framework5\Factory::package_class($package);
-	}
-}
-
-# returns the base location of a given package
-if (!function_exists('package_base')) {
-	function package_base($package) {
-		return \Framework5\Factory::package_base($package);
-	}
-}
-
-# returns true if the package is a valid file
-if (!function_exists('package')) {
-	function package($package) {
-		return \Framework5\Factory::package($package);
+	 function import($package_name) {
+	 	return \Framework5\Factory::import($package_name);
 	}
 }
 
 # returns true if the package has baan loaded
 if (!function_exists('loaded')) {
-	 function loaded($package) {
-	 	return \Framework5\Factory::loaded($package);
+	 function loaded($package_name) {
+	 	return \Framework5\Factory::loaded($package_name);
 	}
 }
 
@@ -49,15 +28,39 @@ if (!function_exists('implement')) {
 
 # render a view controller
 if (!function_exists('execute')) {
-	function execute($package, $options = null) {
-		return \Framework5\Factory::execute($package, $options);
+	function execute($package_name, $options = null) {
+		return \Framework5\Factory::execute($package_name, $options);
 	}
 }
 
 # returns a single instance of a package
 if (!function_exists('instance')) {
-	function instance($package) {
-		return \Framework5\Factory::instance($package);
+	function instance($package_name) {
+		return \Framework5\Factory::instance($package_name);
+	}
+}
+
+# returns the classname of a given package
+if (!function_exists('package_class')) {
+	function package_class($package_name) {
+		$package = new \Framework5\Package($package_name);
+		return $package->class;
+	}
+}
+
+# returns the base location of a given package
+if (!function_exists('package_base')) {
+	function package_base($package_name) {
+		$package = new \Framework5\Package($package_name);
+		return $package->package_base;
+	}
+}
+
+# returns true if the package is a valid file
+if (!function_exists('package')) {
+	function package($package_name) {
+		$package = new \Framework5\Package($package_name);
+		return $package->path_valid();
 	}
 }
 
