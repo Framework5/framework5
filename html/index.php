@@ -16,14 +16,16 @@ try {
 	require_once '../framework5/autoload.php';
 	
 	# get application controller from Framework5\Router, base on the uri segment
-	$app_package = Router::resolve(Request::segment(0));
+	$package_name = Router::resolve(Request::segment(0));
 	
 	# check if the application is a valid package
-	if (package($app_package)) {
+	if (package($package_name)) {
 		
-		import($app_package); # import the application
-		$app = package_class($app_package); # get application classname
-		$app = '\\Framework5\\' . $app; # add application namespace
+		# get application fully qualified name
+		$package = new Package($package_name);
+		$app = $package->fully_qualified; 
+		
+		import($package_name);
 		
 		# check if class implements IApplication
 		if (!implement($app, 'Framework5\IApplication'))
@@ -31,7 +33,7 @@ try {
 		
 		# execute the application
 		debug('Application execution starting');
-		$app::execute();
+		execute($package_name);
 		debug('Application execution complete');
 		
 		# log execution stats
@@ -53,5 +55,6 @@ try {
 
 catch (Exception $e) {
 	# handle exceptions through the application
-	$app::exception_handler($e);
+	//$app::exception_handler($e);
+	echo $e->getMessage();
 }
