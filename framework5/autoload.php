@@ -26,6 +26,7 @@ call_user_func(function() {
 	require PATH_CORE.'interface/IApplication.php';
 	require PATH_CORE.'interface/IModule.php';
 	require PATH_CORE.'interface/IRouter.php';
+	require PATH_CORE.'interface/IView.php';
 		
 	# framework core files
 	require PATH_CORE.'controller/Controller.php'; # controller base
@@ -37,7 +38,7 @@ call_user_func(function() {
 	require PATH_CORE.'controller/Request.php'; # request object
 	require PATH_CORE.'controller/Logger.php'; # log utility
 	require PATH_CORE.'controller/Module.php'; # module base
-	
+	require PATH_CORE.'controller/View.php'; # view object
 	
 	# application dependencies
 	require PATH_CORE.'controller/ApplicationBase.php';

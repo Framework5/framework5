@@ -26,12 +26,20 @@ if (!function_exists('implement')) {
 	}
 }
 
-# render a view controller
+# execute a controller
 if (!function_exists('execute')) {
 	function execute($package_name, $options = null) {
 		return \Framework5\Factory::execute($package_name, $options);
 	}
 }
+
+# render a view
+if (!function_exists('render')) {
+	function render($package_name, $options = null) {
+		return \Framework5\View::render($package_name, $options);
+	}
+}
+
 
 # returns a single instance of a package
 if (!function_exists('instance')) {
