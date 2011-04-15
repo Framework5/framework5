@@ -4,7 +4,6 @@ namespace Framework5;
 
 /*
 * The Factory class handles package methods and instances 
-* @author tmatthews (tmatthewsdev@gmail.com)
 */
 
 class Factory extends Controller {
@@ -136,14 +135,10 @@ class Factory extends Controller {
 		
 		# check if class implents the Framework5\IScript interface
 		if (!Factory::implement($controller, 'Framework5\IExecutable'))
-			throw new Exception("Package '$package_name' could not be rendered, class '$controller' does not implement interface '\Framework5\IExecutable'");
+			throw new Exception("Package '$package_name' could not be executed, class '$controller' does not implement interface '\Framework5\IExecutable'");
 		
-		# if options were passed, pass to execute
-		if ($options) return $controller::execute($options);
-		
-		# import and execute script controller
-		
-		return $controller::execute();
+		# execute and return the result
+		return $controller::execute($options);
 	}
 	
 	
