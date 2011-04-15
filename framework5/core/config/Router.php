@@ -19,8 +19,11 @@ class Router implements IRouter {
 			case 'site':
 				return  'site.app.Application';
 			
+			case 'dev':
+				return 'dev.app.Framework5\DeveloperApplication';
+			
 			default:
-				return 'wddsocial.app.WDDSocialApplication';
+				return 'wddsocial.app.Framework5\WDDSocialApplication';
 		}
 	}
 }
