@@ -4,7 +4,6 @@ namespace Framework5;
 
 /*
 * Handles http request information
-* @author tmatthews (tmatthewsdev@gmail.com)
 */
 
 class Request {
