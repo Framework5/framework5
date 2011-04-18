@@ -6,7 +6,7 @@ namespace Framework5;
 * Framework5 configuration file
 */
 
-class LocalizationSettings {
+class ModuleConfig {
 	
 	# languages supported
 	public static $languages = array(
