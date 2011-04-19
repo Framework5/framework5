@@ -24,7 +24,7 @@ class I18n extends Module implements IModule {
 			'description' 	=> 'Language localization module',
 			'authors' 		=> 'Tyler Matthews',
 			'version' 		=> '0.3.0',
-			'package'		=> 'core.module.i18n'
+			'package'		=> 'core.module.i18n.I18n'
 		);
 		
 		
@@ -38,7 +38,9 @@ class I18n extends Module implements IModule {
 		if (!isset(ModuleConfig::$languages) 
 		or empty(ModuleConfig::$languages))
 		throw new Exception(
-			"Could not import localization module. Valid languages array must be set in LanguageSettings");
+			"Could not import I18n module. Valid languages array must be set in config.ModuleConfig");
+		
+		
 		
 	}
 	
@@ -49,7 +51,7 @@ class I18n extends Module implements IModule {
 	private static $_language; # the current language id (en,es,fr)
 	
 	
-	
+		
 	/**
 	* Set or get current language
 	*/
