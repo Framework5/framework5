@@ -27,7 +27,6 @@ A package alias can be defined to create an easier way to refer to commonly used
 ex: ':userModel' maps to 'site.model.MyApp\UserModel'
 	':template' maps to 'site.view.SiteTemplate' //class in global namespace
 
-
 Defining package aliases ---
 To define package aliases, pass an associative array of key value pairs, where the key is the alias and the package name is the value to the define_alias_array method of the core controller PackageManager. This will register all values in the array, and allow them to be used in place of any package name.
 
@@ -47,11 +46,12 @@ Multiple elements of the framework accept a package name as a parameter. For exa
 
 Global functions are used for many of the core functions of Framework5. These functions are defined in the framework5/core/functions/global.php file, and exist in the global namespace. That being said, these methods are accessible anywhere within a Framework5 application. The global.php file is included from the framework autoloader.
 
-
+```php
 import($package_name) {
 	defined in core.controller.Framework5\Factory
 	return type boolean
-	
+```
+
 	Includes a package in the application. When import is called, it passes the parameters to the Factory::import() static method, which handles file includes and package management. The factory first determines if the package has already been imported, and will return true to avoid duplicate includes without using PHP's require_once call. 
 	
 	In the case that the package has not yet been imported, the Factory determines if the package name is a valid file path. If the path is invalid, a Framework5\Exception will be thrown with message: "Factory could not load package 'package_name'. because the file does not exist." Otherwise, a valid path name will be passed to the PHP require control structure.
